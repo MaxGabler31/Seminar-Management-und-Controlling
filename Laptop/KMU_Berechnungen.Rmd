@@ -73,5 +73,12 @@ Anteil_KMU <- Anteil_KMU %>%
 Anteil_KMU <-  Anteil_KMU %>% 
   arrange(Jahr, Unternehmensart)
 
+Anteil_SD_KMU <- Anteil_KMU%>%
+  group_by(Unternehmensart)%>%
+  summarise(SD_UN = diff(range(Anteil_UN)), SD_AN = diff(range(Anteil_AN)), SD_Us = diff(range(Anteil_Us)), 
+         SD_IN = diff(range(Anteil_IN)), SD_UNI = diff(range(Anteil_UNI)),
+         SD_GLG = diff(range(Anteil_GLG, na.rm = T)), SD_PW = diff(range(Anteil_PW, na.rm = T)))
+
+
 ```
 
