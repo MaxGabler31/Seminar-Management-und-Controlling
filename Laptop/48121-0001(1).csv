@@ -1,0 +1,60 @@
+GENESIS-Tabelle: 48121-0001
+Unternehmen, Tätige Personen, Umsatz und weitere betriebs-;;;;;;;;;
+und volkswirtschaftliche Kennzahlen: Deutschland, Jahre,;;;;;;;;;
+Unternehmensgröße;;;;;;;;;
+Statistik für kleine und mittlere Unternehmen;;;;;;;;;
+Deutschland;;;;;;;;;
+;;Unternehmen;Unternehmen (EU);Tätige Personen;Umsatz;Bruttoinvestitionen in Sachanlagen;Unternehmen mit Investitionen;Bruttolöhne und -gehälter;Produktionswert
+;;Anzahl;Anzahl;Anzahl;Mill. EUR;Mill. EUR;Anzahl;Mill. EUR;Mill. EUR
+Kleinstunternehmen;2015;1949137;.;5338723;397860;21985;804923;.;.
+Kleinstunternehmen;2016;1983076;.;5416503;419801;36110;872716;.;.
+Kleinstunternehmen;2017;2013322;.;5496567;431920;41209;810107;.;.
+Kleinstunternehmen;2018;-;2126937;5721920;453405;37027;800714;66059;355302
+Kleinstunternehmen;2019;-;2123862;5730320;448135;35506;784102;67850;354872
+Kleinstunternehmen;2020;-;2061145;5379944;438309;32448;732961;63622;343780
+Kleine Unternehmen;2015;372161;.;6354553;693513;31054;273442;.;.
+Kleine Unternehmen;2016;394596;.;6742562;746186;37607;292431;.;.
+Kleine Unternehmen;2017;398128;.;6853521;770860;37653;289824;.;.
+Kleine Unternehmen;2018;-;392298;6890040;769758;37668;283336;157603;552419
+Kleine Unternehmen;2019;-;385616;6786266;756990;38192;276289;160607;544570
+Kleine Unternehmen;2020;-;346934;6037918;738054;29389;241574;151629;511914
+Mittlere Unternehmen;2015;69612;.;5459737;924077;33037;57856;.;.
+Mittlere Unternehmen;2016;72155;.;5627840;928176;33791;59899;.;.
+Mittlere Unternehmen;2017;74333;.;5756784;976248;35094;61950;.;.
+Mittlere Unternehmen;2018;-;65921;5202654;835347;36741;56933;159076;580543
+Mittlere Unternehmen;2019;-;66596;5249140;863323;38161;57189;166297;603748
+Mittlere Unternehmen;2020;-;62217;4805634;855899;33899;52438;158245;580225
+Großunternehmen;2015;17282;.;11029583;4008802;118111;15369;.;.
+Großunternehmen;2016;17859;.;11299510;4101281;122606;15832;.;.
+Großunternehmen;2017;18589;.;11661458;4394132;150943;16435;.;.
+Großunternehmen;2018;-;15769;13306226;4771891;173925;14830;583921;3213293
+Großunternehmen;2019;-;16605;13798474;4957730;189857;15510;619835;3316221
+Großunternehmen;2020;-;15507;13207283;4672955;176337;14517;599029;3086596
+Insgesamt;2015;2408192;.;28182596;6024251;204188;1151589;.;.
+Insgesamt;2016;2467686;.;29086414;6195443;230114;1240878;.;.
+Insgesamt;2017;2504372;.;29768330;6573160;264898;1178316;.;.
+Insgesamt;2018;-;2600925;31120840;6830401;285361;1155811;966659;4701556
+Insgesamt;2019;-;2592680;31564200;7026178;301717;1133091;1014590;4819410
+Insgesamt;2020;-;2485804;29430778;6705217;272073;1041490;972524;4522515
+__________
+"Kleinstunternehmen:
+Bis 9 Beschäftigte und bis 2 Millionen Euro Umsatz.
+
+Kleine Unternehmen:
+Bis 49 Beschäftigte und bis 10 Millionen Euro Umsatz und
+kein Kleinstunternehmen.
+
+Mittlere Unternehmen:
+Bis 249 Beschäftigte und bis 50 Millionen Euro Umsatz und
+kein kleines Unternehmen.
+
+Großunternehmen:
+Über 249 Beschäftigte oder über 50 Millionen Euro Umsatz.
+
+2018:
+Ab dem Berichtsjahr 2018 werden die Ergebnisse für
+Unternehmen entsprechend der EU-Unternehmensdefinition
+veröffentlicht. Bis einschließlich Berichtsjahr 2017 wurden
+""Rechtliche Einheiten"" als Unternehmen bezeichnet."
+© Statistisches Bundesamt (Destatis), 2022
+Stand: 07.12.2022 / 15:08:25

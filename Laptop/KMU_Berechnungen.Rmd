@@ -1,0 +1,77 @@
+---
+title: "Max Seminararbeit MC"
+output: html_document
+date: "2022-12-07"
+---
+
+```{r}
+library(readr)
+library(readxl)
+library(tidyverse)
+
+setwd("C:/Users/Dell_E6540/Desktop/Max/Universität/5. Semester/Seminar Management und Controlling")
+data <- read.csv2("48121-0001(1).csv", skip = 7)
+
+colnames(data) <- c("Unternehmensart", "Jahr", "Anzahl_Unternehmen", "EU", "Anzahl_Arbeiter", "Umsatz", "Investition", "Anzahl_UN_Invest", "Löhne_Gehälter", "Produktionswert")
+
+data <- data%>%
+  mutate(Anzahl_Unternehmen =  ifelse(Anzahl_Unternehmen == "-", EU, Anzahl_Unternehmen))%>%
+  filter(!is.na(Jahr))%>%
+  select(-c(EU))%>%
+  mutate(Jahr = as.numeric(Jahr), Anzahl_Unternehmen = as.numeric(Anzahl_Unternehmen), Anzahl_Arbeiter = as.numeric(Anzahl_Arbeiter), Umsatz = as.numeric(Umsatz), Investition = as.numeric(Investition), Anzahl_UN_Invest = as.numeric(Anzahl_UN_Invest), Löhne_Gehälter = ifelse(Löhne_Gehälter != "-", as.numeric(Löhne_Gehälter), NA), Produktionswert = ifelse(Löhne_Gehälter != "-", as.numeric(Produktionswert), NA)) %>%
+  mutate(Unternehmensart = 
+           ifelse(Unternehmensart=="Gro\xdfunternehmen", "Grossunternehmen", Unternehmensart),
+         KMU = ifelse(Unternehmensart == "Grossunternehmen", 0, 1))
+
+data <- data %>%
+  mutate(Unternehmensart = factor(Unternehmensart, levels = c("Kleinstunternehmen", "Kleine Unternehmen",
+                                  "Mittlere Unternehmen", "Grossunternehmen", "Insgesamt"), ordered = T))
+
+
+
+Insgesamt <- data%>%
+  filter(Unternehmensart == "Insgesamt")%>%
+  select(-c(KMU))
+
+colnames(Insgesamt) <- c("Unternehmensart_I", "Jahr", "Anzahl_Unternehmen_I", "Anzahl_Arbeiter_I", "Umsatz_I", "Investition_I", "Anzahl_UN_Invest_I", "Löhne_Gehälter_I", "Produktionswert_I")
+
+
+data <- data%>%
+  filter(Unternehmensart != "Insgesamt")
+
+data <- left_join(data, Insgesamt, by = "Jahr")
+
+
+
+
+
+
+
+Anteil_KMU <- data%>%
+  group_by(Unternehmensart, Jahr)%>%
+  summarise(Anteil_UN =round(Anzahl_Unternehmen/Anzahl_Unternehmen_I, 4)*100, Anteil_AN = round(Anzahl_Arbeiter/Anzahl_Arbeiter_I, 4)*100, Anteil_Us = round(Umsatz/Umsatz_I, 4)*100, Anteil_IN = round(Investition/Investition_I, 4)*100, Anteil_UNI = round(Anzahl_UN_Invest/Anzahl_UN_Invest_I, 4)*100, Anteil_GLG = round(Löhne_Gehälter/Löhne_Gehälter_I, 4)*100, Anteil_PW = round(Produktionswert/Produktionswert_I, 4)*100)
+
+KMU <- data%>%
+  group_by(KMU,Jahr)%>%
+  summarise(Anteil_UN =round(sum(Anzahl_Unternehmen)/Anzahl_Unternehmen_I, 4)*100, Anteil_AN = round(sum(Anzahl_Arbeiter)/Anzahl_Arbeiter_I, 4)*100, Anteil_Us = round(sum(Umsatz)/Umsatz_I, 4)*100, Anteil_IN = round(sum(Investition)/Investition_I, 4)*100, Anteil_UNI = round(sum(Anzahl_UN_Invest)/Anzahl_UN_Invest_I, 4)*100, Anteil_GLG = round(sum(Löhne_Gehälter)/Löhne_Gehälter_I, 4)*100, Anteil_PW = round(sum(Produktionswert)/Produktionswert_I, 4)*100)%>%
+  distinct()%>%
+  filter(KMU == 1)%>%
+  mutate(KMU = "KMU")
+
+colnames(KMU) <- colnames(Anteil_KMU)
+
+Anteil_KMU <- bind_rows(Anteil_KMU, KMU)
+
+data <- data %>%
+  mutate(Unternehmensart = factor(Unternehmensart, levels = c("Kleinstunternehmen", "Kleine Unternehmen",
+                                  "Mittlere Unternehmen", "KMU", "Grossunternehmen"), ordered = T))
+
+Anteil_KMU <- Anteil_KMU %>%
+  mutate(Unternehmensart = factor(Unternehmensart, levels = c("Kleinstunternehmen", "Kleine Unternehmen",
+                                  "Mittlere Unternehmen", "KMU", "Grossunternehmen"), ordered = T))
+
+Anteil_KMU <-  Anteil_KMU %>% 
+  arrange(Jahr, Unternehmensart)
+
+```
+
