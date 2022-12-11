@@ -9,7 +9,7 @@ library(readr)
 library(readxl)
 library(tidyverse)
 
-setwd("C:/Users/Dell_E6540/Desktop/Max/Universität/5. Semester/Seminar Management und Controlling")
+setwd("C:/Users/Gabler Arbeitsplatz/Documents/GitHub/Seminar-Management-und-Controlling/Laptop")
 data <- read.csv2("48121-0001(1).csv", skip = 7)
 
 colnames(data) <- c("Unternehmensart", "Jahr", "Anzahl_Unternehmen", "EU", "Anzahl_Arbeiter", "Umsatz", "Investition", "Anzahl_UN_Invest", "Löhne_Gehälter", "Produktionswert")
